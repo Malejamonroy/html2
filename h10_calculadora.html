@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./css/h10_calculadora.css">
+</head>
+<script>
+    
+    window.onload = function(){
+        
+
+    }
+</script>
+<body>
+    <div id="contPrincipal">
+        <h1>Super Calculadora</h1>
+        <form>
+            <!-- como relaciona el label con el imput = con el nombre (for = name) -->
+            <label for="v1">Valor 1</label>
+            <input id="v1"type="number" name="v1"><!-- el type es definir que tipo es (number,string...) -->
+
+            <label for="operador">Operador</label>
+            <select id="operador" name="operador" >
+                <option value="suma">+</option>
+                <option value="resta">-</option>
+                <option value="multiplicacion">*</option>
+                <option value="division">/</option>
+            </select>
+
+            <label for="v2">Valor 1</label>
+            <input id="v2" type="number" name="v2"> 
+
+            <button id="btnCalcular">Calcular</button>
+                
+        </form>
+        <!-- mostarar el resultado puede ser un parrafo -->
+         <p id="resultado">0000</p>
+
+    </div>
+    
+</body>
+</html>
