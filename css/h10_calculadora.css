@@ -9,9 +9,11 @@
     padding: 25px;/* marco*/
     margin: 30px 170px;
     border: 50px /* color del borde */
+    
 }    
 h1{
     color: aqua;
+    border: 10;
 }
 input,label,select{
     display: block;
