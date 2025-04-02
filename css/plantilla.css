@@ -1,0 +1,18 @@
+*{
+    display: block; /* para cambiar el tipo de etiqueta poner inline en block osea para abajo  */
+    background-color: rgb(207, 237, 237); /* color del fondo */
+    font-family: Arial, Helvetica, sans-serif;
+    color: black; /*color de la letra*/
+    width: fit-content;/* cajita sea del tamaño de lo que esta adentro */
+    border: 2px solid rgb(255, 0, 170); /* linea del marco */
+    text-align: center;
+    margin: auto;   /*el fondo que se acople*/
+    width: fit-content; /* para que sea del tamaño que quiero*/
+    text-align: center;/* centrar el texto */
+    padding-block: 5px ;/* para poner un paddin en block */
+    margin-block: 5px ; /* separar las cosas un poquito en blck */
+}
+button:hover{
+    /* para que cuando pases por encima cambie de color */
+    background-color: #225522;
+  }
