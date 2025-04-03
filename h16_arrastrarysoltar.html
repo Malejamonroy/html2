@@ -1,0 +1,64 @@
+<!-- arrastar y soltar un div con javascript y drag start, drag over, drop -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/h16_arrastarysoltar.css">
+
+<script>
+    
+    function iniciar(ev){
+       // console.log(ev.currentTarget.id);//devuelve el id(de los div) que has arrastrado
+        ev.dataTransfer.setData('movilId', ev.currentTarget.id);
+
+    }
+    function arrastar(ev){
+        ev.preventDefault();//preventDefault = no te comportes con tu comportamiento por defecto 
+    }
+    function soltar(ev){
+        //console.log(ev.currentTarget)
+        let movil = document.getElementById(ev.dataTransfer.getData('movilId')); //estamos pidiendo el dato con ev.dataTransfer.getData 
+        let destino = ev.currentTarget;
+        destino.appendChild(movil);//con appendChild es el que agrega un hijo ,(movil hijo de destino)
+        
+    }
+
+    window.onload = function(){
+        // los dos hacen lo mismo, vamos a crear una array
+        // let movil = document.getElementsByClassName('movil');  etElementsByClassName solo pueden atacar a un elementos ,este espera el nombre de la cale no el selector
+        // querySelectorAlleste abarca mas,espera como parametro un seleccot scc
+        let moviles = document.querySelectorAll('.movil'); 
+        //moviles[0].ondragstart = inicial --> esto se pondria por cada uno, pero con un for hacemos un array ya nos recorre todas las posiciones y nos las inicia; 
+        for(let i= 0; i< moviles.length; i++){
+            moviles[i].ondragstart = iniciar;
+        }
+
+        //evento destino
+        let destinos = document.querySelectorAll('.destino');
+        for(let i= 0; i< destinos.length; i++){
+            // destinos[i].ondragover = arrastrar;
+            // otra forma de registar eventos addEventListener
+            destinos[i].addEventListener('dragover',arrastar);
+            destinos[i].addEventListener('drop',soltar)//aqui mismo registramos el evento de soltar porque se debe poner a los destinos
+
+        }
+    }
+</script>
+</head>
+
+<body>
+    <h1>Arrastar y Soltar</h1>
+    <!-- div.destino*3>div#movil$.movil*3>img -->
+     <!-- creamos 3 div id movil y con clase movil y con imag -->
+    <div class="destino">
+        <div id="movil1" class="movil"><img src="img/css.png" alt=""></div>
+        <div id="movil2" class="movil"><img src="img/html.png" alt=""></div>
+        <div id="movil3" class="movil"><img src="img/w3c.png" alt=""></div>
+    </div>
+    <div class="destino"></div>
+    <div class="destino"></div>
+</body>
+</html>
