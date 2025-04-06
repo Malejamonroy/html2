@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./css/h10_calculadora.css">
+</head>
+<script>
+    let res;
+
+    function calcular(){
+       // alert("calculando!");
+       //guardamos en una variable(v1),doumen[arbol dom],getElementById(porque estamos llamandolo por el id),nombre del id,Valor que esta guardado.
+       //let valor1 = document.getElementById('V1').value; //devuelve una cadena se debe transformar a numero 
+       let valor1 = Number(document.getElementById('V1').value);
+       console.log(valor1)
+       let valor2 = Number(document.getElementById('V2').value);
+       console.log(valor2)
+       let op = document.getElementById('operador').value //este si queda como una cadena
+       console.log(op)
+       switch(op){ 
+        case "+": res = valor1 + valor2;
+        break;
+        case "-": res = valor1 - valor2;
+        break;
+        case "*": res = valor1 * valor2;
+        break;
+        case "/": res = valor1 / valor2;
+        break;
+       }
+       document.getElementById("resultado").textContent = res //textContent el texto que contiene entre apertura de apertura y de cierre
+
+        
+    }
+
+    window.onload = function(){
+        document.getElementById('btnCalcular').onclick = calcular;
+    
+        
+
+    }
+</script>
+<body>
+    <div id="contPrincipal">
+        <h1>Calculadora</h1>
+        
+            <!-- como relaciona el label con el imput = con el nombre (for = name) -->
+            <label for="v1">Valor 1</label>
+            <input id="V1" type="number" name="v1"><!-- el type es definir que tipo es (number,string...) -->
+
+            <label for="operador">Operador</label>
+            <select id="operador" name="operador" >
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+
+            <label for="v2">Valor 1</label>
+            <input id="V2" type="number" name="v2"> 
+
+            <button id="btnCalcular" >Calcular</button>
+                
+        
+        <!-- mostarar el resultado puede ser un parrafo -->
+         <p id="resultado">0000</p>
+
+    </div>
+    
+</body>
+</html>
