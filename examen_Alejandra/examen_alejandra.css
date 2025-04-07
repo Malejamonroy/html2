@@ -1,0 +1,18 @@
+#fondo{
+    background-color: rgb(197, 197, 247);
+    width: 40%;
+    padding: 50px;/* marco*/
+    margin: 30px 170px;
+    border: 2px solid  blue /* color del borde */
+    
+
+}
+#text1{
+    margin: 8px;
+    height: 8px;
+    
+}
+#titulo1{
+    text-align: center;
+    color: rgb(48, 34, 244);
+}
