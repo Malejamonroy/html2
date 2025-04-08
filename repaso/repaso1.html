@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="container"> 
+    <h1>Calcular Fechas</h1>
+        <label for="fecha">introduce una fecha </label>
+        <input type="date" name="inputfecha" id="fecha">
+        <button id="calcular" class="btn btn-primary">Calcular</button>
+        <p id="resultado"></p>
+        <p id="resultado2"></p>
+        <p id="resultado3"></p>
+        <p id="resultado4"></p>
+    </div>
+<script>
+  /*Fechas y cálculo de días
+    Objetivo: El usuario introduce una fecha y la página le dice:
+    Cuántos días faltan para esa fecha
+    Si es una fecha pasada o futura
+    El día de la semana en que cae
+    Si es un año bisiesto*/
+
+    window.onload= function(){
+        document.getElementById('calcular').onclick = calcularfecha;           
+      
+        
+    }
+    function calcularfecha(){
+        let inputfecha = document.getElementById('fecha').value; 
+        let fechactual = new Date();
+        let fecha = new Date(inputfecha); //esto convierte la fecha a un objeto de fecha
+       
+        //esto combrueba que no se haya introducido una fecha
+        if(inputfecha == "") 
+        {
+            alert("No has introducido una fecha");
+        }
+
+        //esto hace lo del año bisiesto
+        const [dia, mes, anio] = inputfecha.split('/'); //separar la fecha en dia, mes y año
+        if((anio%4 == 0 && anio%100 != 0 ) || anio%400 ==0)
+        {
+            console.log("El año es bisiesto");
+    
+        }
+        else{
+            console.log("El año no es bisiesto");
+        }
+        //este comprueba del dia de la semana
+        const diasdelasemana = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+        const dayOfWeekIndex = fecha.getDay(); //esto devuelve el dia de la semana (numero)
+       console.log ( `El día de la semana es: ${diasdelasemana[dayOfWeekIndex]}.\n`);
+        
+    }
+
+    
+</script>
+</body>
+</html>
+
