@@ -48,9 +48,12 @@
     padding: 0 10px;
     font-size: 2rem;
     border-radius: 5px;
-  }
+   
+    }
   
   /* botones */
+   /* grid-column-start: ; poner el primer y ultimo boton en posicion 
+    grid-column-end: ; */
   #cajaC       { grid-area: 2 / 3 / 3 / 6; }
   #caja7       { grid-area: 3 / 1 / 4 / 2; }
   #caja8       { grid-area: 3 / 2 / 4 / 3; }
