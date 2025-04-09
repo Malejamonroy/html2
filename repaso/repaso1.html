@@ -48,16 +48,35 @@
         if((anio%4 == 0 && anio%100 != 0 ) || anio%400 ==0)
         {
             console.log("El año es bisiesto");
+            document.getElementById('resultado4').textContent = "El año es bisiesto";
     
         }
         else{
             console.log("El año no es bisiesto");
+            document.getElementById('resultado4').textContent = "El año no es bisiesto";
         }
         //este comprueba del dia de la semana
         const diasdelasemana = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
         const dayOfWeekIndex = fecha.getDay(); //esto devuelve el dia de la semana (numero)
        console.log ( `El día de la semana es: ${diasdelasemana[dayOfWeekIndex]}.\n`);
+       document.getElementById('resultado3').textContent = `El día de la semana es: ${diasdelasemana[dayOfWeekIndex]}.`;
+
+        //esto comprueba si la fecha es pasada o futura
+        if(fecha < fechactual)
+        {
+            console.log("La fecha es pasada");
+            document.getElementById('resultado2').textContent = "La fecha es pasada";
+        }
+        else{
+            console.log("La fecha es futura");
+            document.getElementById('resultado2').textContent = "La fecha es futura";
+        }
         
+        //esto calcula los dias que faltan para la fecha
+        let diasfaltantes = Math.floor((fecha - fechactual) / (1000 * 60 * 60 * 24)); //esto convierte la diferencia a dias
+        console.log(`Faltan ${diasfaltantes} días para esa fecha`);
+        document.getElementById('resultado').textContent = `Faltan ${diasfaltantes} días para esa fecha`;//esto lo muestra en la pantalla
+        //esto lo muestra en la pantalla
     }
 
     

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CalcularEdad_Repaso2.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Calcular Edades</h1>
+        <label for="edad">Introduce tu edad: </label>
+        <input type="number" name="inputedad" id="edad">
+        <button id="calcular" class="btn btn-primary">Calcular</button>
+        <p id="resultado"></p>
+        <p id="resultado2"></p>
+        <p id="resultado3"></p>
+        <p id="resultado4"></p>
+    </div>
+        
+
+<script>
+        /*Cálculos con edades
+    Objetivo: El usuario introduce su edad y la página le dice:
+    Si es menor o mayor de edad
+    Cuántos años le faltan para jubilarse (a los 65 años)
+    En qué año se jubilará
+    Si su edad es múltiplo de 10*/
+    
+    window.onload= function(){
+    document.getElementById('calcular').onclick = calcularEdad;            
+   }
+   function calcularEdad(){
+    let inputedad = document.getElementById('edad').value; 
+    let edad = parseInt(inputedad); //esto convierte la fecha a un objeto de fecha
+                
+    //esto comprueba que no se haya introducido una fecha
+    if(inputedad == "") 
+    {
+        alert("No has introducido una edad");
+    } 
+    
+    //esto comprueba si es mayor o menor de edad
+    if(edad >= 18){
+        console.log("Eres mayor de edad");
+        document.getElementById('resultado').textContent = "Eres mayor de edad";
+    }
+     else{
+        console.log("Eres menor de edad");
+        document.getElementById('resultado').textContent = "Eres menor de edad";
+}
+    
+    //esto calcula los años que faltan para jubilarse
+    let jubilacion = 65 - edad;
+    console.log("Te faltan " + jubilacion + " años para jubilarte");
+    document.getElementById('resultado2').textContent = "Te faltan " + jubilacion + " años para jubilarte";
+    
+    //esto calcula el año en el que se jubilará
+    let añoactual = new Date().getFullYear();
+    let añojubilacion = añoactual + jubilacion;
+    console.log("Te jubilarás en el año " + añojubilacion);
+    document.getElementById('resultado3').textContent = "Te jubilarás en el año " + añojubilacion;
+    
+    //esto comprueba si la edad es múltiplo de 10
+    if(edad % 10 == 0){
+        console.log("Tu edad es múltiplo de 10");
+        document.getElementById('resultado4').textContent = "Tu edad es múltiplo de 10";
+    }
+    else{
+        console.log("Tu edad no es múltiplo de 10");
+        document.getElementById('resultado4').textContent = "Tu edad no es múltiplo de 10";
+    }
+    }
+    </script>
+    
+</body>
+</html>
+
