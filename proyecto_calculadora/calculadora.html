@@ -26,7 +26,7 @@
 
                 <div id="displayBox"><label>0</label></div>
               
-                <div id="cajaC" class="auxiliar"><button>C</button></div>
+                <div id="cajaC"><button>C</button></div>
               
                 <div id="caja7" class="numero"><button>7</button></div>
                 <div id="caja8" class="numero"><button>8</button></div>
@@ -41,7 +41,7 @@
                 <div id="caja3" class="numero"><button>3</button></div>
               
                 <div id="caja0" class="numero"><button>0</button></div>
-                <div id="cajaComa" class="numero"><button>,</button></div>
+                <div id="cajaPunto" class="numero"><button>.</button></div>
               
                 <div id="cajaSuma" class="operador"><button>+</button></div>
                 <div id="cajaResta" class="operador"><button>-</button></div>
@@ -76,6 +76,8 @@
 
     <script>
         let operacion = "";
+        let coma = Boolean(true);
+        let operador2 = Boolean(false);
 
     window.onload = function ()
     { let numBtn = document.getElementsByClassName('numero'); //esto hace el array
@@ -84,20 +86,54 @@
         let operadorBtn = document.getElementsByClassName('operador');
     for(let j=0;j <operadorBtn.length;j++)
         operadorBtn[j].onclick = clickOperador
+    document.getElementById('cajaIgual').onclick = resOperacion;
+    document.getElementById('cajaPunto').onclick = ponerPunto;
+    document.getElementById('cajaC').onclick = BorrarNumero;
+
     }
     function clickNumero(evento){
         console.log (evento.currentTarget.textContent)
         operacion += evento.currentTarget.textContent
+        operador2 = true
         console.log(operacion)
         document.getElementById('displayBox').textContent= operacion //con este muestro en la pantalla
+
 
     }
     function clickOperador(evento){
         console.log(evento.currentTarget.textContent)
+        if(operador2 == true){
+            operacion += evento.currentTarget.textContent 
+            operador2 = false;
+        }
+        coma = true
+        document.getElementById('displayBox').textContent = operacion
+    }
+    function resOperacion(evento){
+        document.getElementById('displayBox').textContent = eval(operacion)//la operacion esta guardad dentro del string eval mira a ver su hay algun tipo de operacion y la hace 
+    }
+
+    function ponerPunto(evento){
+        console.log(evento.currentTarget.textContent)
+        console.log(coma)
+        if( coma == true){
+            operacion += evento.currentTarget.textContent
+            coma = false
+        } console.log(coma)
+        document.getElementById('displayBox').textContent = operacion
+        console.log(operacion)
         
+    }
+    function BorrarNumero(evento){
+        document.getElementById('displayBox').textContent = '';
+        operacion = '';
+        coma = true;
+        operador2 = false
+
 
     }
-        
+
+
     </script>
 
 </body>
