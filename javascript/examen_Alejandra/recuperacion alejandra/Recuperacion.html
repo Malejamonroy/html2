@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Recuperacion.css">
+</head>
+<body>
+    <div id="fondo">
+        <h1>Numeros Enteros</h1>
+        <div>
+            <input id="numIngresado1" type="number">
+            <input id="numIngresado2" type="number" >
+        </div>
+        <button id="BtnComparar">Comparar</button>
+        <p id="resultado"></p>
+        <p id="resultado2"></p>
+        <p id="resultado3"></p>
+        <p id="resultado4"></p>
+    </div>
+<script>
+    window.onload = function(){
+        document.getElementById('BtnComparar').onclick = Comparar
+    }
+    function Comparar(){
+        let num1= Number(document.getElementById('numIngresado1').value);
+        let num2= Number(document.getElementById('numIngresado2').value);
+        let mayor;
+        let menor;
+        if (num1 > num2)
+        {   mayor = num1;
+            menor = num2;
+        }
+        else {
+            menor = num1;
+            mayor = num2;
+        }console.log ('El numero menor es: ' + menor );
+        console.log ('El numero mayor es: ' + mayor );
+        document.getElementById('resultado').textContent = 'El numero menor es: ' + menor + ' El numero mayor es: ' + mayor
+
+        let numpar = 0
+        let resSuma = num1 + num2
+        numpar = resSuma %2
+        if(numpar == 0 ){
+            document.getElementById('resultado2').textContent='Es par'
+        }else{document.getElementById('resultado2').textContent = 'Es impar'}
+    
+
+        
+        let resDiferencia = Math.floor(num1 - num2)
+        if (resDiferencia <= 0){
+            document.getElementById('resultado3').textContent='Es positiva'
+        }else{document.getElementById('resultado3').textContent='Es negativo'}
+
+        
+        if(num1 != 0 || num2 !=0){
+            num1 = Math.trunc(num1 %10);
+            num2 = Math.trunc(num2 %10);
+            document.getElementById('resultado4').textContent = 'los ultimos digitos son ' + num1 + ' y ' + num2
+            console.log('el ultimo digito de cada numero es '+ num1 + ' y ' + num2)
+        }
+
+        
+    }
+
+
+
+    
+</script>
+</body>
+</html>

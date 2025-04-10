@@ -1,0 +1,20 @@
+#fondo{
+    background-color: rgb(230, 205, 227);
+    width: fit-content;
+    border: 2px solid rgb(255, 0, 170);
+    text-align: center;
+    box-shadow: 15px 15px 25px rgb(218, 124, 186);
+    
+}
+button{
+    background-color: #c29ac5;
+    margin-bottom: 50 px;
+    width: 95%;
+    border: none;
+    margin-bottom: 15px;
+}
+button:hover{
+    /* para que cuando pases por encima cambie de color */
+    background-color: #915696;
+    
+  }
